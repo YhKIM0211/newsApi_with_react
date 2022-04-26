@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PaintBox Clone</title>
+
+  <!-- favicon 설정-->
+  <link rel="shortcut icon" href="./images/favicon.png" type="image/x-icon">
+
+  <!-- 글꼴 설정 -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital@0;1&family=Source+Serif+Pro:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap"
+    rel="stylesheet">
+
+  <!-- reset.css -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css">
+
+  <!-- main css -->
+  <link rel="stylesheet" href="./main.css">
+
+  <!-- font-awesome-->
+  <script src="https://kit.fontawesome.com/577211be80.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+  <!-- header nav-->
+  <header class="header">
+    <nav class="main-nav">
+      <ul class="main-nav--left">
+        <li>nail studio</li>
+        <li>shop product</li>
+      </ul>
+
+      <img src="./images/image26_192x192.webp" alt="logo">
+
+      <ul class="main-nav--right">
+        <li>juornal</li>
+        <li>
+          <i class="fa-solid fa-bag-shopping"></i>
+          <span>0</span>
+        </li>
+      </ul>
+      
+    </nav>
+  </header>
+
+  <!-- content -->
+  <main class="container">
+
+    <!-- ============ intro ============ -->
+    <div class="home"> <!-- 이렇게 감싸지 않으면... 안되나? -->
+
+      <section class="card card--beige">
+
+        <img class="card__image" src="images/image01_640x640.webp" alt="" />
+
+        <div class="card__wrapper">
+          <p class="card__descript">
+            Meet Like French, our deep burgundy polish that's as timeless as red lipstick. Statement-making as a solid
+            color or with art, make it your signature red.
+          </p>
+          <a class="card__button">discover now</a>
+        </div>
+        
+      </section>
+    </div>
+
+    <!-- ============ out studio ============ -->
+    <div class="home">
+      <section class="card card--burly-wood">
+        <img class="card__image" src="images/image2_640x640.webp" alt="" />
+        <div class="card__wrapper">
+          <div class="card__title">our studio</div>
+          <p class="card__descript">
+            Book new nails at our <em>Upper East Side</em> studio.
+          </p>
+          <a class="card__button">book a manicure<span>→</span></a>
+        </div>
+      </section>
+    </div>
+
+    <!-- ============ shop ============ -->
+    <div class="home">
+      <section class="info">
+        <div class="info__intro">
+          <div class="info__intro-category">the shop</div>
+          <div class="info__intro-title">Our Newest Polish Colors</div>
+        </div>
+
+        <div class="info__products">
+          <div class="info__product">
+            <img class="info__product-manicure" src="./images/image03_320x400.webp" alt="">
+            <img class="info__product-color" src="./images/image04_320x400.webp" alt="" hidden>
+            <div class="info__product-category">nail lacquer | <span>new!</span></div>
+            <div class="info__product-title">like french</div>
+            <div class="info__product-price">$22.00</div>
+            <a class="info__product-button">add to cart</a>
+          </div>
+          <div class="info__product">
+            <img class="info__product-manicure" src="./images/image06_320x400.webp" alt="">
+            <img class="info__product-color" src="./images/image05_320x400.webp" alt="" hidden>
+            <div class="info__product-category">power couple</div>
+            <div class="info__product-title">like canyon + like electric</div>
+            <div class="info__product-price">$40.00</div>
+            <a class="info__product-button">add to cart</a>
+          </div>
+          <div class="info__product">
+            <img class="info__product-manicure" src="./images/image08_320x400.webp" alt="">
+            <img class="info__product-color" src="./images/image07_320x400.webp" alt="" hidden>
+            <div class="info__product-category">power couple</div>
+            <div class="info__product-title">like gilded + like velvet</div>
+            <div class="info__product-price">$40.00</div>
+            <a class="info__product-button">add to cart</a>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- ============ gift card ============ -->
+    <div class="home">
+      <section class="card card--light-sky-blue">
+        <img class="card__image" src="images/image09_960x960.webp" alt="" />
+        <div class="card__wrapper">
+          <div class="card__title">gift card</div>
+          <p class="card__descript">
+            Give the gift of the Paintbox experience for a manicure that tells a story.
+          </p>
+          <a class="card__button">buy a figt card</a>
+        </div>
+      </section>
+    </div>
+
+    <!-- ============ inspiration ============ -->
+    <div class="home">
+      <section class="info">
+        <div class="info__intro">
+          <div class="info__intro-category"> inspiration</div>
+          <div class="info__intro-title">How to use it: <em>Like Canyon + Like Electric</em></div>
+        </div>
+
+        <div class="info__inspirations">
+          <div class="info__inspiration">
+            <img class ="info__inspiration-image" src="./images/image10_200x255.webp" alt="">
+            <div class="info__inspiration-num">01</div>
+          </div>
+          <div class="info__inspiration">
+            <img class ="info__inspiration-image" src="./images/image11_200x255.webp" alt="">
+            <div class="info__inspiration-num">02</div>
+          </div>
+          <div class="info__inspiration">
+            <img class ="info__inspiration-image" src="./images/image12_200x255.webp" alt="">
+            <div class="info__inspiration-num">03</div>
+          </div>
+          <div class="info__inspiration info__inspiration--end">
+            <img class ="info__inspiration-image" src="./images/image13_200x255.webp" alt="">
+            <div class="info__inspiration-num">04</div>
+          </div>
+        </div>
+
+        <a class="info__button">shop power couple</a>
+      </section>
+    </div>
+    <section class="inspiration"></section>
+    
+    <!-- ============ story ============ -->
+    <div class="home">
+      <section class="card card--burly-wood">
+        <img class="card__image" src="images/image14_1440x970.webp" alt="" />
+        <div class="card__wrapper">
+          <div class="card__day">Apr 14, 2022</div>
+          <p class="card__descript">Nails of New York: Tanya Taylor</p>
+          <a class="card__arrow-button">read story</a>
+        </div>
+      </section>
+      <section class="card card--burly-wood card--reverse">
+        <img class="card__image" src="images/image15_1440x970.webp" alt="" />
+        <div class="card__wrapper">
+          <div class="card__day">Mar 19, 2022</div>
+          <p class="card__descript">New and Now: Spring-Summer 2022</p>
+          <a class="card__arrow-button">read story</a>
+        </div>
+      </section>
+      <section class="card card--burly-wood">
+        <img class="card__image" src="images/image16_1440x970.webp" alt="" />
+        <div class="card__wrapper">
+          <div class="card__day">Mar 10, 2022</div>
+          <p class="card__descript">Nails of New York: Eunice Bynn</p>
+          <a class="card__arrow-button">read story</a>
+        </div>
+      </section>
+    </div>
+
+    <!-- ============ conversation ============ -->
+    <div class="home">
+      <section class="conversation">
+        <div class="conversation__title">join our conversation</div>
+        <div class="conversation__descript">Be the first to hear about new product launches and enjoy 15% off your first polish order.</div>
+        <form action="#">
+          <input type="text" placeholder="Enter your email" class="conversation__input">
+          <button class="conversation__button">➔</button>
+        </form>
+      </section>
+    </div>
+
+    <!-- ============ outside the box ============ -->
+    <div class="home">
+      <section class="card card--peach-puff">
+        <img class="card__image" src="images/image17_960x960.gif" alt="" />
+        <div class="card__wrapper">
+          <div class="card__title">#outsidethebox</div>
+          <p class="card__descript">
+            Follow us on Instagram and get inspired by our tutorials to make the most of your Power Couples.
+          </p>
+          <a class="card__button">buy a figt card</a>
+        </div>
+      </section>
+    </div>
+
+    <!-- ============ gallery ============ -->
+    <div class="home">
+      <section class="instagram">
+        <div class="instagram__images">
+          <img class="instagram__image" src="./images/image18_480x480.webp" alt="">
+          <img class="instagram__image" src="./images/image19_480x480.webp" alt="">
+          <img class="instagram__image" src="./images/image20_480x480.webp" alt="">
+          <img class="instagram__image" src="./images/image21_480x480.webp" alt="">
+          <img class="instagram__image" src="./images/image22_480x480.webp" alt="">
+          <img class="instagram__image" src="./images/image23_480x480.webp" alt="">
+          <img class="instagram__image" src="./images/image24_480x480.webp" alt="">
+          <img class="instagram__image" src="./images/image25_480x480.webp" alt="">
+        </div>
+        <div class="instagram__url">Follow us at <a href="https://www.instagram.com/paintboxnails/">@paintboxnails</a></div>
+      </section>
+    </div>
+  </main>
+
+  <!-- ============ Footer link ============ -->
+  <footer class="footer">
+    <div class="category">
+      <div class="category__title">support</div>
+      <ul class="category__list">
+        <li>f.a.q</li>
+        <li>privacy policy</li>
+        <li>terms and conditions</li>
+        <li>accessibility</li>
+      </ul>
+    </div>
+    <div class="category category--center">
+      <div class="category__title">follow us</div>
+      <ul class="category__list">
+        <li>instagram</li>
+        <li>printerest</li>
+        <li>facebook</li>
+        <li>newsletter</li>
+      </ul>
+    </div>
+    <div class="category">
+      <div class="category__title">paintbox</div>
+      <ul class="category__list">
+        <li>out studio</li>
+        <li>careers</li>
+        <li>press</li>
+        <li>contact us</li>
+      </ul>
+    </div>
+  </footer>
+</body>
+</html>
