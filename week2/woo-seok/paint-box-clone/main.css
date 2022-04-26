@@ -1,0 +1,293 @@
+@import "./variables.css";
+
+body {
+  height: 100vh;
+  box-sizing: border-box;
+  font-family: 'Source Serif Pro', serif;
+}
+
+/* ============ header nav ============*/
+.header {
+  font-family: 'Source Sans Pro', sans-serif;font-family: 'Source Sans Pro', sans-serif;
+  width: 100%;
+  height: var(--nav-size);
+  line-height: var(--nav-size); /*가운데 정렬을 위해 일종의 페이크 작업? */
+  background-color: hsl(0, 0%, 100%);
+  position: fixed;
+  top: 0;                       /* 없으면, container의 margin-top에 영향을 받는다? */
+  z-index: 1;
+}
+.header > .main-nav {
+  /*display: flex;*/          /* 처음은 이걸로 했는데... 이미지 가운데 정렬이 안됨 */
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  justify-content: space-around;
+  align-items: center;
+}
+.header > .main-nav > ul {
+  display: flex; 
+  /* width: calc(100% / 3); */
+}
+.header > .main-nav > .main-nav--left {
+  justify-content: flex-start;
+  margin-left: var(--nav-magin-side);
+}
+.header > .main-nav > .main-nav--right {
+  justify-content: flex-end;
+  margin-right: var(--nav-magin-side);
+}
+.header > .main-nav > img {
+  margin: auto;
+  
+}
+.header > .main-nav > ul > li {
+  margin: 0px 20px;
+  text-transform: uppercase;
+  letter-spacing: var(--letter-space);
+}
+.header > .main-nav > ul > li > span {
+  margin-left: 10px;
+}
+
+/* container */
+.container { margin-top: var(--nav-size); }
+.container > .home { padding: var(--contain-margin-top-bottom) var(--contain-margin-right-left); }
+
+/* ============ card ============ */
+.card {
+  /* margin: var(--contain-margin-top-bottom) var(--contain-margin-right-left); */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+.card > .card__image { width: 50%; }
+.card > .card__wrapper {
+  width: 50%;
+  padding: 0px 60px;
+  text-align: center; 
+}
+.card > .card__wrapper > .card__title {
+  margin-bottom: 30px;
+  text-transform: uppercase;
+}
+.card > .card__wrapper > .card__day { margin-bottom: 30px; }
+.card > .card__wrapper > .card__descript {
+  font-size: 34px;
+  margin-bottom: 100px;
+}
+.card > .card__wrapper > .card__descript > em { font-style: italic; }
+.card > .card__wrapper > .card__button {
+  font-family: 'Source Sans Pro', sans-serif;font-family: 'Source Sans Pro', sans-serif;
+  font-size: 14px;
+  letter-spacing: var(--letter-space);
+  text-decoration: none;
+  text-transform: uppercase;
+  border: 1px solid black;
+  padding: 20px 50px; 
+  transition: all 0.2s ease-in-out;
+}
+.card > .card__wrapper > .card__button:hover {
+  color: white;
+  background-color: black;
+  cursor: pointer;
+}
+.card > .card__wrapper > .card__arrow-button {
+  font-family: 'Source Sans Pro', sans-serif;font-family: 'Source Sans Pro', sans-serif;
+  font-size: 14px;
+  letter-spacing: var(--letter-space);
+  text-decoration: none;
+  text-transform: uppercase;
+}
+.card > .card__wrapper > .card__arrow-button::after {
+  content: "→";
+  font-size: 20px;
+}
+.card--reverse > .card__image { order: 1; } /* 하위 조건까지 건드리는건 좀 그런가? modif은 그 자체로 순종? */
+.card--beige { background-color: #FBF7F6; }
+.card--burly-wood { background-color: #F3EDE8; }
+.card--light-sky-blue { background-color: #DEE8E9; }
+.card--peach-puff { background-color: #F9DBBE; }
+
+/* ============ info ============ */
+.info {
+  text-align: center;
+}
+.info > .info__intro > .info__intro-category {
+  font-size: 14px;
+  letter-spacing: var(--letter-space);
+  font-family: 'Source Sans Pro', sans-serif;font-family: 'Source Sans Pro', sans-serif;
+  text-transform: uppercase;
+  margin-bottom: 27px;
+}
+.info > .info__intro > .info__intro-title {
+  font-size: 40px;
+  margin-bottom: 70px;
+}
+.info > .info__intro > .info__intro-title > em { font-style: italic; }
+
+/* ============ products ============ */
+.info > .info__products {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+.info > .info__products > .info__product {
+  width: calc(90% / 3);
+}
+.info > .info__products > .info__product > .info__product-category {
+  font-size: 14px;
+  line-height: 30px;
+  letter-spacing: var(--letter-space);
+  font-family: 'Source Sans Pro', sans-serif;font-family: 'Source Sans Pro', sans-serif;
+  text-transform: uppercase;
+}
+.info > .info__products > .info__product > .info__product-category > span {
+  color: #cfa102;
+}
+.info > .info__products > .info__product > .info__product-title {
+  font-size: 30px;
+  font-style: italic;
+  text-transform: capitalize;
+  margin-bottom: 20px;
+}
+.info > .info__products > .info__product > .info__product-price {
+  opacity: 0.7;
+  letter-spacing: 2px;
+  margin-bottom: 35px; /* 35px가 확실히 적용 되고 있는데... 문제는 span의 line box의 위치와의 관계이다 */
+}
+.info > .info__products > .info__product > .info__product-button {
+  font-family: 'Source Sans Pro', sans-serif;font-family: 'Source Sans Pro', sans-serif;
+  font-size: 14px;
+  letter-spacing: var(--letter-space);
+  text-decoration: none;
+  text-transform: uppercase;
+  border: 1px solid black;
+  padding: 20px 50px;
+  transition: all 0.2s ease-in-out;
+}
+.info > .info__products > .info__product > .info__product-button:hover {
+  color: white;
+  background-color: black;
+  cursor: pointer;
+}
+
+/* ============ inspiration ============ */
+.info  > .info__inspirations { 
+  display:flex;
+  justify-content: center;
+  margin-bottom: 80px;
+}
+.info > .info__inspirations > .info__inspiration {
+  border-right: 1px solid black;
+  width: calc(40% / 4);
+}
+.info > .info__inspirations > .info__inspiration--end{ border: none;}
+.info > .info__inspirations > .info__inspiration > .info__inspiration-image {
+  width: 100%;
+}
+.info > .info__button {
+  font-family: 'Source Sans Pro', sans-serif;font-family: 'Source Sans Pro', sans-serif;
+  font-size: 14px;
+  letter-spacing: var(--letter-space);
+  text-decoration: none;
+  text-transform: uppercase;
+  padding: 20px 50px; 
+  border: 1px solid black;
+  transition: all 0.2s ease-in-out;
+}
+.info > .info__button:hover {
+  color: white;
+  background-color: black;
+  cursor: pointer;
+}
+
+/* ============ conversation ============ */
+.conversation {
+  width: 55%;
+  margin: auto;
+  text-align: center;
+}
+.conversation > .conversation__title {
+  font-size: 14px;
+  font-family: 'Source Sans Pro', sans-serif;font-family: 'Source Sans Pro', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: var(--letter-space);
+  margin-bottom: 35px;
+}
+.conversation > .conversation__descript {
+  font-size: 40px;
+  line-height: 45px;
+  margin-bottom: 55px;
+}
+.conversation > form {
+  border-bottom: 1px solid black;
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+}
+.conversation > form > .conversation__input {
+  border: none;
+  font-size: 40px;
+  opacity: 0.8;
+  font-family: 'Source Serif Pro', serif; /* 글꼴 상속이 안되나???  */
+}
+.conversation > form > .conversation__input:focus { outline: none; }
+.conversation > form > .conversation__button {
+  width: 45px;
+  height: 45px;
+  background-color: white;
+  border: 1px solid black;
+  cursor: pointer;
+}
+
+/* ============ gallery ============*/
+.instagram > .instagram__images {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.instagram > .instagram__images > .instagram__image { 
+  width: calc(100%/4);
+  transition: all 0.3s ease-in-out;
+}
+.instagram > .instagram__images > .instagram__image:hover {
+  opacity: 0.5;
+}
+.instagram > .instagram__url {
+  font-size: 40px;
+  line-height: 45px;
+  text-align: center;
+  padding: 100px 0 60px;
+}
+.instagram > .instagram__url > a {
+  text-decoration: none;
+  color: black;
+  opacity: 0.5;
+}
+
+/* ============ footer ============ */
+.footer {
+  height: 250px;
+  background-color: #F3EDE8;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.footer > .category {
+  font-family: 'Source Sans Pro', sans-serif;font-family: 'Source Sans Pro', sans-serif;
+  width: calc(100% / 3);
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: var(--letter-space);
+}
+.footer > .category--center {
+  border-left: 1px solid black;
+  border-right: 1px solid black;
+}
+.footer > .category > .category__title {
+  margin-bottom: 40px;
+  opacity: 0.5;
+}
+.footer > .category > .category__list > li {margin: 10px 0px;}
