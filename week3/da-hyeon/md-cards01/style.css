@@ -1,0 +1,263 @@
+/***** 공통 *****/
+body{
+    box-sizing: border-box;
+}
+
+/***** 컴포넌트 *****/
+
+/***** card 전체 컴포넌트 시작 *****/
+.card_component{
+    max-width: 758px;
+    min-height: 492px;
+    border: 1px solid #eee;
+    margin: 100px auto 0; 
+    position: relative;
+}
+
+/***** card의 main (pc에서 왼쪽) 영역 *****/
+.card_main{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 73.61%;
+    height: 100%;
+    border-right: 1px solid #eee;
+}
+.card_main_topBar{
+    height: 47px;
+    border-bottom: 1px solid #eee;
+    padding: 0 0 0 8px;
+    position: relative;
+}
+.card_main_topBar .tabNav{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+.card_aside_openBtn{
+    height: 28px;
+    width: 28px;
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+    padding: 0;
+    background-color: transparent;
+    border: none;
+    opacity: .5;
+    transition: opacity .3s;
+    cursor: pointer;
+}
+.card_aside_openBtn:hover{
+    opacity: 1;
+}
+.card_aside_openBtn span{
+    display: block;
+    width: 70%;
+    height: 1px;
+    background-color: rgb(0, 0, 0);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+.card_aside_openBtn span::before{
+    display: block;
+    content: "";
+    position: absolute;
+    top: -7px;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background-color: rgb(0,0,0);
+}
+.card_aside_openBtn span::after{
+    display: block;
+    content: "";
+    position: absolute;
+    bottom: -7px;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background-color: rgb(0,0,0);
+}
+.card_main_topBar .tabNav{
+    overflow: hidden;
+}
+.card_main_topBar .tabNav li{
+    height: 100%;
+    padding: 0 12px;
+    font-size: 13px;
+    letter-spacing: 1.8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+.card_main_topBar .tabNav li:after{
+    display: block;
+    content: "";
+    background-color: #000;
+    width: 100%;
+    height: 1px;
+    position: absolute;
+    bottom: 0;
+    left: -100%;
+}
+.card_main_topBar .tabNav li.active:after{
+    left: 0;
+}
+.card_main_contentBox{
+    height: calc(100% - 47px);
+    background-color: #fafafa;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.card_main_contentBox .card{
+    width: 344px;
+    border-radius: 6px;
+    background-color: #fff;
+    box-shadow: 0px 1px 3px rgba(82, 82, 82, 0.3);
+    overflow: hidden;
+}
+.mediaEle, .supportingEle, .buttonsEle{
+   display: none;
+}
+.mediaEle{
+    width: 100%;
+}
+.mediaEle img{
+    width: 100%;
+}
+.defaultEle{
+    padding: 16px;
+}
+.defaultEle strong{
+    display: block;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 32px;
+}
+.defaultEle span{
+    display: block;
+    font-size: 15px;
+    font-weight: 300;
+    line-height: 1.6;
+    color: rgb(102, 102, 102);
+}
+.supportingEle{
+    padding: 0 16px 16px;
+    font-size: 15px;
+    font-weight: 300;
+    line-height:1.2; 
+    color: rgb(102, 102, 102);
+}
+.buttonsEle{
+    padding: 0 16px 16px;
+}
+.buttonsEle button{
+    background-color: transparent;
+    border: none;
+    color: #6200ee;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    cursor: pointer;
+}
+/***** card의 aside (pc에서 오른쪽) 영역 *****/
+.card_aside{
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 26.39%;
+    min-width: 199px;
+    height: 100%;
+}
+.card_aside.closed{
+    transform: translateX(100%);
+    display: none;
+}
+.card_aside_topBar{
+    height: 47px;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 0 0 16px;
+    font-size: 15px;
+}
+.card_aside_closeBtn{
+    width: 48px;
+    height: 100%;
+    border-radius: 50%;
+    border: none;
+    background-color: transparent;
+    position: relative;
+    cursor: pointer;
+    opacity: .5;
+    transition: opacity .3s;
+}
+.card_aside_closeBtn:hover{
+    opacity: 1;
+}
+.card_aside_closeBtn::before{
+    display: block;
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%) rotate(45deg);
+    width: 40%;
+    height: 1px;
+    background-color: #000;
+}
+.card_aside_closeBtn::after{
+    display: block;
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%) rotate(-45deg);
+    width: 40%;
+    height: 1px;
+    background-color: #000;
+}
+.card_aside_options{
+    padding: 16px;
+}
+.card_aside_options>strong{
+    display: block;
+    margin-bottom: 16px;
+    font-size: 15px;
+}
+.card_aside_options input[type="checkbox"]{
+    display: none
+}
+.card_aside_options label{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 2px 0;
+    margin-bottom: 8px;
+}
+.card_aside_options label i{
+    display: block;
+    width: 16px;
+    height: 16px;
+    border: 1px solid #000;
+    box-sizing: border-box;
+    margin-right: 5px;
+    position: relative;
+}
+.card_aside_options input[type="checkbox"]:checked+label i{
+    background-color: black;
+}
+.card_aside_options label span{
+    display: block;
+    font-size: 14px;
+}
