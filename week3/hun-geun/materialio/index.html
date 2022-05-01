@@ -22,6 +22,9 @@
             <div class="header-left">
                 <div>ELEVATED</div>
                 <div>OUTLINED</div>
+                <button class="material-symbols-outlined">
+                    tune
+                </button>
             </div>
             <div class="header-right">
                 <span>Configuration</span>
@@ -66,42 +69,6 @@
             </div>
         </div>
     </div>
-    
-    <script>
-
-    const media = document.querySelector("span.button-media")
-    const support = document.querySelector("span.button-supporting")
-    const buttons = document.querySelector("span.button-buttons")
-    const flag = document.querySelector("section")
-    const mediaDisplay = document.querySelector(".section-media")
-    const supportingDisplay = document.querySelector(".section-supporing")
-    const buttonsDisplay = document.querySelector(".section-buttons")
-    const closeRight = document.querySelector(".material-icons")
-    flag.addEventListener('click', changingCard);
-
-    function changingCard(event){
-        if (event.target.className === 'button-media') {
-            console.log(mediaDisplay.style.display)
-            if (mediaDisplay.style.display === 'block'){
-                mediaDisplay.style.display = 'none';
-            } else {
-                mediaDisplay.style.display = 'block';
-            }
-        } else if (event.target.className === 'button-supporting'){
-            if (supportingDisplay.style.display === 'block'){
-                supportingDisplay.style.display = 'none';
-            } else{
-                supportingDisplay.style.display = 'block';
-            }
-        } else if (event.target.className === 'button-buttons'){
-            if (buttonsDisplay.style.display === 'block'){
-                buttonsDisplay.style.display = 'none';
-            } else{
-                buttonsDisplay.style.display = 'block';
-            }
-        }
-    }
-    </script>
-
+    <script src="main.js"></script>
 </body>
 </html>
