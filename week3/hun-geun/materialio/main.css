@@ -26,6 +26,7 @@
     display: flex;
     align-items: center;
     padding-left: 20px;
+    position: relative;
 }
 .wrap .header-left div {
     height: 48px;
@@ -40,10 +41,20 @@
 .wrap .header-left div:hover {
     background-color: #F9F9F9;
 }
+.wrap .header-left div:nth-child(1) {
+    border-bottom: 2px solid black;
+}
 .wrap .header-left div:active {
     color: #424242;
-    border-bottom: 2px solid black;
     font-weight: 500;
+    background-color: #ECECEC;
+}
+.wrap .header-left button {
+    position: absolute;
+    right: 15px;
+    border: none;
+    background-color: white;
+    display:none;
 }
 
 /*header-right*/
