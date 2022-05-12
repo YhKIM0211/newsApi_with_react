@@ -1,0 +1,121 @@
+/* https://material.io/components/cards */
+html { box-sizing: border-box; }
+*, *:before, *:after { box-sizing: inherit; }
+
+body {
+  font:normal 16px 'Roboto', sans-serif;
+  background-color:white;
+  margin-left:100px;
+  margin-top: 140px;
+  padding:0px;
+  line-height: 24px;
+  /* font-family:  */
+}
+
+li {list-style:none;}
+a {text-decoration:none; color: #424242;}
+img {display: block;}
+
+.wrap {
+  font-size: 16px;
+
+  width: 760px;
+  height: 493.997px;
+  margin: 32px 0 0 0;
+  border: 1px solid;
+  box-shadow: rgba(0,0,0,0.027);
+  display:flex; /*r,l container가 수평으로 쌓인다*/
+  /* flex-grow: 4; */
+  position: relative;
+  color: #424242;
+
+}
+.left_container {
+  /* border: 1px solid ; */
+  width: 75%; /*섹션 카드요소-2/3*/
+  height: 100%;
+  display: table;
+  border-collapse: collapse;
+}
+.header_menu {
+  border: 1px solid ;
+  height: 45px;
+  margin-top: 0;
+  background-color: #ffffff;
+  text-align: center;
+  display: table-row;
+} 
+.header_menu > li {
+  /* border: 1px solid ; */
+  /* display: inline; */
+  margin-left: 30px;
+  margin-top: 10px;
+  float: left;
+  margin-right: 10px;/*글자간격*/
+}
+/* .header_menu > li > a {
+  /* width:100%;  */
+  /* text-align:center;
+}
+  텍스트가 가운데 정렬이 되도록 함 */
+.main {
+  content:"";
+  background-color: rgb(222, 220, 220);
+  height: 100%;
+  opacity: .5;
+  position: relative;
+  z-index: 1;
+}
+
+
+.right_container {
+  border: 1px solid;
+  width: 25%; /*섹션 카드요소-2/3*/
+  height: 100%;
+  box-sizing: border-box;
+  display: table;
+  border-collapse: collapse;
+}
+.right_container > .conf_bar {
+  border: 1px solid ;
+  height: 45px;
+  background-color: #ffffff;
+  text-align: center;
+  display: table-row;
+  position: relative;
+
+}
+.conf_bar > span {
+  display: block;
+  float: left;
+  margin-top: 10px;
+  margin-left: 10px;
+  /* position: absolute; */
+}
+.conf_bar > :nth-child(2) {
+  /* border: 1px solid gray; */
+  display: block;
+  float: right;
+  margin-right: 10px;
+  /* position: absolute; */
+}
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 48
+}
+
+.right_container > .opt_bar > div > span{
+  /* border: 1px solid red; */
+  display: block;
+  padding: 15px 10px 10px 10px;
+}
+form > div {
+  padding: 2px 10px;
+  
+}
+
+
+

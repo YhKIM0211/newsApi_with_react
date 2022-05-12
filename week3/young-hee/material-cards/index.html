@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en"> 
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <!-- reset -->
+  <link rel="stylesheet" src="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css"/>
+  <!-- font -->
+
+  <!-- css -->
+  <link rel="stylesheet" href="https://fonts.sandbox.google.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+  <link rel="stylesheet" href="./main.css">
+  <!-- js -->
+  <script defer src="./main.js"></script>
+</head>
+<body>
+  <div class="wrap">
+    <div class="left_container">
+      <ul class ="header_menu">
+        <li><a href="#tab1">ELEVATED</a></li>
+        <li><a href="#tab2">OUTLINED</a></li>
+        <li>
+          <a href="#sub-menu">
+          <span class="material-symbols-outlined"></span>
+          </a>
+        </li>
+      </ul>
+      <div class="main"></div>
+    </div>
+
+    <div class="right_container">
+      
+      <div class="conf_bar">
+        <span>Configuration</span>
+        <span class="material-symbols-outlined">close</span>         
+      </div>
+      <div class="opt_bar">
+        <div>
+          <span>Options</span>
+        </div>
+        <div>
+          <form>
+            <div><input type="checkbox" name="option" value="media" onclick='getCheckboxValue(event)'/><label for="option"> Media</label></div>
+            <div><input type="checkbox" name="option" value="support" onclick='getCheckboxValue(event)'/><label for="option"> Supporting text</label></div>
+            <div><input type="checkbox" name="option" value="buttons" onclick='getCheckboxValue(event)'/><label for="option"> Buttons</label></div>
+            <!-- <div id='result'></div> -->
+          </form>
+          <!-- <div id='result'></div> -->
+        </div>
+      </div>
+      
+          
+    </div>
+    
+  </div>  
+</body>
+</html>
