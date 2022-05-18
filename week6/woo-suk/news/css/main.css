@@ -102,6 +102,7 @@ body{height: 100vh; font-family: 'Inter', sans-serif; font-size: 18px; }
   padding: 15px 0;
   display: flex;
   justify-content: space-between;
+  text-decoration: none;
 }
 .article-image {
   width: 200px;
@@ -137,8 +138,11 @@ body{height: 100vh; font-family: 'Inter', sans-serif; font-size: 18px; }
   font-weight: 800;
   margin-bottom: 12px;
 }
-.article-description {line-height: 22px; font-weight: 500;}
-
+.article-description {
+  line-height: 22px;
+  font-weight: 500;
+  color: var(--color-darkgray)
+}
 /*  highlight-article */
 .highlight-article {display: block; margin-top: 25px;}
 .highlight-article > .article-image {width: 100%; height: 420px;}

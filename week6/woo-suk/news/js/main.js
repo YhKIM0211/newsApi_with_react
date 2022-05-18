@@ -75,9 +75,9 @@ function renderNews(newsList) {
   const news = newsList.reduce((prev, news, idx) => {
     let articleStartTag = '';
     if (idx === 0) {
-      articleStartTag = '<article class="article highlight-article">';
+      articleStartTag = `<a class="article highlight-article" href=${news.url}>`;
     } else {
-      articleStartTag = '<article class="article">';
+      articleStartTag = `<a class="article" href=${news.url}>`;
     }
     return (
       prev +
@@ -98,10 +98,9 @@ function renderNews(newsList) {
               ${news.description}
             </p>
           </div>
-        </article>
+        </a>
       `
     );
   }, '');
-
   main.innerHTML = news;
 }
