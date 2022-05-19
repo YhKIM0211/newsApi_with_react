@@ -1,0 +1,197 @@
+* { /* 공통요소 */
+  box-sizing: border-box; 
+  font-family: Pretendard;
+  font-style: normal;
+  color: #5F5F5F;
+}
+
+.wrapper {
+  /*전체 페이지 설정*/
+  height: 100vh; 
+  display: flex; 
+  /*전체 페이지 안 왼쪽aside, 오른쪽page가 수평으로 쌓이도록*/
+}
+
+.left-aside {
+  width: 240px; /*고정너비*/
+  height: 100%; /*높이를 부모 요소(wrapper)와 같게*/
+  background-color: #E5E5E5;
+  border: 2px solid #5F5F5F;
+  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* jsutify-content: space-between */
+
+  position: fixed;
+  top:0px;
+  left:0px;  
+}
+.left-aside > .newspage-title {
+  margin: 0 auto;
+  margin-top:26px;
+}
+.left-aside > .newspage-title > h1 {
+  margin-bottom: 36.16px; /*아래 텍스트와 간격*/
+  font-weight: 900;
+  font-size: 60px;
+  line-height: 72px;
+}
+.left-aside > .newspage-title > p {
+  display: block;
+  width: 145px; /*박스요소 변환후 가로 너비만 고정*/
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 22px;
+}
+.donation-btn {
+  width: 172px;
+  height: 38px;
+  background: #FFFFFF;
+  border-radius: 4px;
+  border: 2px solid #5F5F5F;
+  
+  margin: 0 auto;
+  margin-top: auto;
+  margin-bottom: 47px;
+
+  text-align: center;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 19px;
+}
+
+.right-dynamic-page {
+  width: calc(100vw - 240px); /* 가변 너비 */
+  height: 100%;
+
+  margin-left: 240px;
+}
+
+.right-dynamic-header {
+  height: 100px;
+  border: 2px solid #5F5F5F;
+  border-left: none;
+  background-color: #E5E5E5; 
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.header-nav-bar {
+  margin-left: 42px;
+  height: 38px;
+}
+.header-nav-bar > a {
+  margin-right: 46px;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 22px;
+  text-align: left;
+}
+.header-input-bar {
+  margin-right: 32px;
+  display: flex;
+}
+.header-input-bar > #input-bar {
+  width: 304px;
+  height: 38px;
+  margin-right: 12px;
+}
+.header-input-bar > .search-btn {
+  width: 81px;
+  height: 38px;
+
+  background: #FFFFFF;
+  border: 2px solid #5F5F5F;
+  border-radius: 4px;
+
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 19px;
+}
+
+.fixed-main {
+  width: 800px;
+  margin: 0 auto;
+  /* background-color: red; */
+}
+.sectionAnchor {
+  text-decoration: none;
+}
+.first-article > img {
+  margin-top: 40px;
+  width: 800px;
+  height: 400px;
+  background: #E5E5E5;
+  border: 2px solid #5F5F5F;
+  box-sizing: border-box;
+}
+.first-article > small {
+  margin-top: 16px;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 17px;
+}
+.first-article > span {
+  margin-left: 12px;
+  color: #A5A5A5;
+}
+.first-article > .first-title {
+  margin-top: 20px;
+  font-size: 24px;
+  font-weight: 800;
+  line-height: 29px;
+}
+.first-article > p {
+  margin-top: 20px;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 22px;
+}
+
+.article-lists {
+  width: 800px;
+  margin-top: 40px;
+   /* height: 596px; */
+  /* overflow: auto; */
+}
+.card-article {
+  /* border: 1px solid orange; */
+  width: inherit;
+  text-decoration: none;
+  display: flex;
+  margin-bottom: 30px;
+}
+.card-article > img {
+  width: 200px;
+  height: 200px;
+  background: #E5E5E5;
+  border: 2px solid #5F5F5F;
+  box-sizing: border-box;
+  margin-right:20px;
+}
+.card-article > div >small {
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 17px;
+}
+.card-article > div > span {
+  margin-left: 12px;
+  color: #A5A5A5;
+}
+.card-article > div > h2 {
+  margin-top: 20px;
+  font-size: 24px;
+  font-weight: 800;
+  line-height: 29px;
+  text-align: left;
+}
+.card-article > div > p {
+  margin-top: 20px;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 22px;
+}
+
