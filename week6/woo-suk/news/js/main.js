@@ -73,16 +73,10 @@ function renderEmpty() {
 
 function renderNews(newsList) {
   const news = newsList.reduce((prev, news, idx) => {
-    let articleStartTag = '';
-    if (idx === 0) {
-      articleStartTag = `<a class="article highlight-article" href=${news.url}>`;
-    } else {
-      articleStartTag = `<a class="article" href=${news.url}>`;
-    }
     return (
       prev +
       `
-        ${articleStartTag}
+        <a class="article ${idx === 0 ? 'highlight-article' : ''}" href=${news.url}>
           <div class="article-image">
             <img src="${news.urlToImage}" alt="news image">
           </div>
