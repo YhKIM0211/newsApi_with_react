@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NEWS Search</title>
+  <!-- reset css -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css">
+  <!-- google fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
+  <!-- css -->
+  <link rel="stylesheet" href="./css/main.css">
+  <!-- js -->
+  <script defer src="./js/main.js"></script>
+</head>
+<body>
+  <div class="wrapper">
+    <!-- sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-logo">LOGO</div>
+      <p class="sidebar-description">This website is the most beautiful news fetcher in the world.</p>
+      <button class="sidebar-donate btn">Donate</button>
+    </aside>
+    <!-- main content -->
+    <section>
+      <!-- navigation / search -->
+      <header class="header">
+        <nav class="navi-lists">
+          <a class="navi-list" href="#">Home</a>
+          <a class="navi-list selected" href="#">News</a>
+          <a class="navi-list" href="#">Community</a>
+          <a class="navi-list" href="#">Login</a>
+          <a class="navi-list" href="#">Sign up</a>
+        </nav>
+        <div class="search">
+          <input class="search-input input" type="text" placeholder="오늘자 뉴스 검색...">
+          <button class="search-btn btn">Search</button>
+        </div>
+      </header>
+      <!-- article -->
+      <main class="main"></main>
+    </section>
+  </div>
+</body>
+</html>
