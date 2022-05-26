@@ -1,92 +1,79 @@
 /*API KEY*/
 const keyValue = '2c6a16d84bbb4f1387f78194e6f68f67'
-
+let keyWord;
 /*Event Listen*/
 const inputWord = document.querySelector('input');
 inputWord.addEventListener('keypress', (e) => {
     if (e.key === "Enter") {
-        search();
+        inputCheck();
         inputWord.blur();
     }
 })
 const searchButton = document.querySelector('button');
-searchButton.addEventListener('click', search)
-const ulList = document.querySelector('ul');
+searchButton.addEventListener('click', inputCheck)
 
-function search(){
-    const keyWord = inputWord.value.trimStart()
+/*검색어 검사*/
+function inputCheck() {
+    keyWord = inputWord.value.trimStart()
     keyWord ? getNewsData(keyWord) : alert("검색어를 입력하세요.")
     inputWord.value = '';
-    const resultKey = document.querySelector('.result-key')
-    resultKey.innerHTML = `Result about '${keyWord}'`;
 }
-
 /* data 가져오기 */
-async function getNewsData(keyWord) {
-    const word = keyWord;
-    const ori = await fetch(`https://newsapi.org/v2/everything?q=${word}&sortBy=popularity&apiKey=${keyValue}`)
+async function getNewsData() {
+    const ori = await fetch(`https://newsapi.org/v2/everything?q=${keyWord}&sortBy=popularity&apiKey=${keyValue}`)
     if (ori.status !== 200) {
         throw new Error("Can't Search News");
     } 
     const newsData = await ori.json();
+
+    return newsHandle(newsData);
+}
+
+/* newsdata handle */
+function newsHandle(newsData) {
     if (newsData.articles.length === 0){
-        alert(`${word}에 대한 검색결과가 없습니다.`)
+        alert(`${keyWord}에 대한 검색결과가 없습니다.`)
     } else {
-        dataProcess(newsData.articles);
+        render(newsData.articles);
     }
 }
 
-/* 항목별 분류 */
-function dataProcess(data) {
-    let authorList = [];
-    let titleList = [];
-    let urlList = [];
-    let urlToImageList = [];
-    let publishedAtList = [];
-
-    data.forEach(el =>{
-        authorList.push(el.author);
-        titleList.push(el.title);
-        urlList.push(el.url);
-        urlToImageList.push(el.urlToImage);
-        publishedAtList.push(el.publishedAt.slice(0,10));
-    });
-    render(authorList, titleList, urlList, urlToImageList, publishedAtList);
-}
-
 /*html에 뿌리기*/
-function render(authorList, titleList, urlList, urlToImageList, publishedAtList) {
-    let repeat;
+function render(data) {
+    /*이전 결과 초기화*/
+    const ulList = document.querySelector('ul');
     ulList.innerHTML='';
-    /*Error prevention*/
+
+    const repeat = data.length <= 20 ? data.length : 20;
     const resultNumber = document.querySelector('.result-number');
-    try {
-        const showResult = document.querySelector('.result');
-        showResult.className = 'result-show';
-    } catch{}
+    resultNumber.innerHTML=`About ${repeat} results`
 
-    authorList.length <= 20 ? repeat = authorList.length : repeat = 20;
 
+    const resultKey = document.querySelector('.result-key')
+    resultKey.innerHTML = `Result about ${keyWord}`;
+
+
+    /*결과 출력*/
     for(i=0; i<repeat; i++){
         let newLi = document.createElement('li')
         newLi.innerHTML =
         `
-        <a href="${urlList[i]}">
+        <a href="${data[i].url}">
             <img style="width: 80px;" 
-                src="${urlToImageList[i]}" 
+                src="${data[i].urlToImage}" 
                 onerror="this.src = './images/noimage.webp'"/>
         </a>
         <div class="info">
             <span class="title">
-                <a href="${urlList[i]}">
-                    ${titleList[i]}
+                <a href="${data[i].url}">
+                    ${data[i].title}
                 </a>
             </span>
-            <span class="author">${authorList[i]}</span>
-            <span class="publishedAt">${publishedAtList[i]}</span>
+            <span class="author">${data[i].author}</span>
+            <span class="publishedAt">${data[i].publishedAt}</span>
         </div>
         `
         ulList.appendChild(newLi);
     }
-    resultNumber.innerHTML=`About ${repeat} results`
+    
 }
