@@ -47,11 +47,9 @@
     color:gray;
 }
 .result {
-    display: none;
+    display: block;
 }
-.result-show {
-    display:block;
-}
+
 li {
     height: 100px;
     margin: 0 10px;
