@@ -5,6 +5,12 @@
   color: #5F5F5F;
 }
 
+img {
+  object-fit: cover;
+  /*이미지 비율은 유지한 채로 화면에 잡힌 이미지 영역 내에 최대한 표시되고 
+  나머지 부분은 표시하지 않는 속성*/
+}
+
 .wrapper {
   /*전체 페이지 설정*/
   height: 100vh; 
@@ -21,8 +27,6 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* jsutify-content: space-between */
-
   position: fixed;
   top:0px;
   left:0px;  
@@ -115,10 +119,12 @@
 .fixed-main {
   width: 800px;
   margin: 0 auto;
-  /* background-color: red; */
 }
 .sectionAnchor {
   text-decoration: none;
+}
+.first-article {
+  margin-bottom: 40px;
 }
 .first-article > img {
   margin-top: 40px;
@@ -153,12 +159,8 @@
 
 .article-lists {
   width: 800px;
-  margin-top: 40px;
-   /* height: 596px; */
-  /* overflow: auto; */
 }
 .card-article {
-  /* border: 1px solid orange; */
   width: inherit;
   text-decoration: none;
   display: flex;
