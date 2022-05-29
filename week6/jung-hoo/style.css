@@ -1,0 +1,7 @@
+.search-group {
+  display: flex;
+}
+
+.search-group > * {
+  margin-right: 5px;
+}
