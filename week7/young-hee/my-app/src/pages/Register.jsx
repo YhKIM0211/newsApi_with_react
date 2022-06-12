@@ -3,137 +3,127 @@ import { RegisterDiv } from '../style/registerStyle';
 import axios from 'axios';
 import { Navigate } from 'react-router-dom';
 
-//입력 id 유효성 검사
-const checkIdValid = async (id) => {
-  const emailRgexp = /^([A-Za-z0-9_\.\-]+)@([A-Za-z0-9\-]+)(\.[A-Za-z0-9\-]+){1,2}$/; 
-  //올바른 형식인 경우
-  if (emailRgexp.test(id) === true) {
-    //입력 id 중복 검사 -> axios 서버 통신
-    let body = {
-      id,
-    }
-
-    await axios.post('https://st-fe34.herokuapp.com/api/user/idCheck', body)
-    .then((res) => {
-      console.log("res",res);
-      if(res.data.check === true) {
-        return 200;
-      }
-
-      if(res.data.check === false) {
-        return 401; //중복
-      }
-
-    })
-  }
-  return 402;
-};
-
-const checkPasswordValid = (password) => {
-  return (password.length >= 4);
-};
-
-const checkConfirmPasswordValid = (password, confirmPswd) => {
-    return (password === confirmPswd);
-}
-
 const Register = () => {
-  const [id , setId] =useState("");
+  const [id , setId] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPswd, setConfirmPswd] = useState("");
-
+  
+  const [validId, setValidId] = useState(false);
+  const [validPassword, setValidPassword] = useState(false);
+  
+  const [idButtonState,setIdButtonState] = useState(false); 
   const [register, setRegister] = useState(false);
-
-  const [idMsg, setIdMsg] = useState("");
-  const [pswdMsg, setPswdMsg] = useState("");
-  const [confirmMsg, setConfirmMsg] = useState("");
-
-  const [idButtonState,setIdButtonState] = useState(false);//클릭 가능 상태
-
+  const [msg, setMsg] = useState("");
+  
   const idRef = React.useRef(null);
   const passwordRef = React.useRef(null);
-  const confirmPswdRef = React.useRef(null);
-
-  //유효성 검사 값
-  let isValidId = checkIdValid(id);
-  let isValidPassword = checkPasswordValid (password);
-  let isValidConfirmPassword = checkConfirmPasswordValid (password, confirmPswd);
-
+  
+  
   //메세지를 2초간 출력 == 메세지 출력 후 3초후 삭제
   useEffect( () => {
     setTimeout( () => {
-        setIdMsg('');
-        setPswdMsg('');
-        setConfirmMsg('');
+        setMsg('');
       }, 2000);
-  },[idMsg, pswdMsg, confirmMsg]);
+  },[msg]);
 
+  
   const handleId = (e) => {
     setId(e.target.value);
-    setIdButtonState(false); 
+    setIdButtonState(false); //입력 받는 중이라면 id 확인 버튼 활성화
   } 
 
-  const handleSubmitId = (e) => { //버튼을 눌러 id의 유효성을 검사하는 함수 
-    e.preventDefault(); //form submit 동작x
-
-    //console.log("v",);
-
-    //잘못된 경우
-    if (isValidId === 401) { 
-      setIdMsg('중복된 id입니다.');
+  const checkIdValid = async (e) => {
+    e.preventDefault(); 
+    const emailRgexp = /^([A-Za-z0-9_\.\-]+)@([A-Za-z0-9\-]+)(\.[A-Za-z0-9\-]+){1,2}$/; 
+    
+    if (emailRgexp.test(id)) {
+      let body = {
+        id,
+      }
+      console.log(body);
+      try {
+        let res = await axios.post("https://st-fe34.herokuapp.com/api/user/idCheck", body);
+        console.log(res.data.check);
+        
+        if(res.data.check) {
+          setValidId(true);
+          setMsg('사용 가능한 id입니다.');
+          setIdButtonState(true);
+          return;
+        } else {
+          setValidId(false);
+          setMsg('중복된 id입니다.');
+          setId('');
+          idRef.current.focus(); 
+          return;
+        }
+      } catch (e) {
+        console.log(e);
+      }
+      
+    }else {
+      setValidId(false);
+      setMsg('유효하지 않은 id 형식입니다.')
       setId('');
       idRef.current.focus(); 
-      setIdButtonState(false);
-      return ;
-    } 
+      return;
+    }
 
-    if (isValidId === 402) { 
-      setIdMsg('id는 email형식이어야 합니다.');
-      setId('');
-      idRef.current.focus(); 
-      setIdButtonState(false);
-      return ;
-    } 
+  };
 
-    if (isValidId === 200) {
-      setIdMsg('사용 가능한 id 입니다.');
-      setIdButtonState(true);
-    } 
-  }
 
-  const handleSubmit = (e) => {
+  const checkPasswordValid = (password, confirmPswd) => {
+    if (password.length >= 4) {
+      if (password === confirmPswd) {
+        setValidPassword(true);
+        console.log(validPassword);
+        return true;
+      }
+    } else {
+      setValidPassword(false);
+      return false;
+    } 
+  };
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if( isValidId === 401 || isValidId === 402 ) {
-      setIdMsg('id 확인이 필요합니다.');
+    if( !validId ) {
+      setMsg('id 확인이 필요합니다.');
       return ;
     }
 
-    if (!isValidPassword) {
-      setPswdMsg('password 확인이 필요합니다.');
+    let pswdCheck = checkPasswordValid(password, confirmPswd);
+    //console.log(validPassword); 업데이트 느림
+    if (!pswdCheck) {
+      setMsg('비밀번호를 확인해주세요.');
       setPassword('');
-      passwordRef.current=''
       passwordRef.current.focus();
       return ;
     }
 
-    if (!isValidConfirmPassword) {
-      setConfirmMsg('confirm password 확인이 필요합니다.');
-      setConfirmPswd('');
-      confirmPswdRef.current=''
-      confirmPswdRef.current.focus(); 
-    }
-    
-    if(isValidId === 200 && isValidPassword && isValidConfirmPassword) {
-      setRegister(true);
-      alert('로그인 성공!');
+    if( validId && pswdCheck) { //console.log(validPassword); 업데이트 느림 -함수 리턴값 활용
+      const name = 'hi';
+      const body = { id, name, password }
+
+      try {
+        let res = await axios.post('https://st-fe34.herokuapp.com/api/user/register' ,body)
+        //console.log(res);
+        //console.log(body);
+        if (res.data.code === 200) {
+          setRegister(true);
+          alert('회원 가입 완료');
+        }
+      } catch (e) {
+        console.log(e);
+      }
     }
   }
 
   return (
     <>
     <RegisterDiv>
-    { register && <Navigate to="/login"/>}
+    { register && <Navigate to="/login"/>} 
       <form action="" method="" className="register">
         <label htmlFor="id">Id: </label>
         <input type="text" name ="id" id="id" 
@@ -145,8 +135,7 @@ const Register = () => {
         />
         <button
           disabled={idButtonState} 
-          value={id}
-          onClick = {handleSubmitId}
+          onClick = {checkIdValid}
         >
         아이디 확인
         </button>
@@ -163,7 +152,6 @@ const Register = () => {
         <label htmlFor="confirmPswd">Confirm: </label>
         <input  type="password" name="confirmPswd" id="confirmPswd"
           required
-          ref={confirmPswdRef}
           value={confirmPswd} 
           onChange={(e) => setConfirmPswd(e.target.value)} 
         />
@@ -174,9 +162,7 @@ const Register = () => {
         회원가입
         </button>
         <br />
-        { idMsg }
-        { !checkPasswordValid(password) && pswdMsg }
-        { !checkConfirmPasswordValid(password,confirmPswd) && confirmMsg }
+        { !validPassword && msg }
       </form>
     </RegisterDiv>
     </>

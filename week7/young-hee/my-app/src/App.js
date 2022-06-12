@@ -6,6 +6,7 @@ import Aside from './components/Aside.jsx';
 import Header from './components/Header.jsx'; 
 import Register from './pages/Register';
 import Login from './pages/Login';
+import MyPage from './pages/logined'
 import Home from './pages/Home';
 import Community from './pages/Community';
 import News from './pages/News.jsx';
@@ -26,7 +27,8 @@ function App () {
           <Route path="/news" element={<News newskeyword={keyword}/>} />
           <Route path="/community" element={<Community/>} />
           <Route path="/login" element={<Login />} />
-          <Route path="/signup" element={<Register/>} />
+          <Route path="/mypage" element={<MyPage/>} />
+          <Route path="/register" element={<Register/>} />
           <Route path="*" element={<Navigate to ='/' replace={true}/>} />
         </Routes>
         </div>

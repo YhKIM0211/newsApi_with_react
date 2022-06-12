@@ -36,14 +36,6 @@ const News = ({newskeyword}) => {//App에서 받은 prop
           data : res.data.articles //[{}가 20개]
         });//위의 초기값과 같은 형태로 맞춰준다. 
 
-        // let author = res.articles[i].author
-        // if (author === null){
-        //   author = 'author: undefined'
-        // }
-        // if(/@/g.test(author)){
-        //   author = 'author: undefined'
-        // }
-
       } catch (error) {
         console.error(error);
       }

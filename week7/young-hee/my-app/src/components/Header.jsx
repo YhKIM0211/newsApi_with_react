@@ -28,11 +28,14 @@ const Header = ({updateKeyword}) => { //App에서 가져온 {updateKeyword} 함�
         <a href="/news">News</a>
         <a href="/Community">Community</a>
         <a href="/login">Login</a>
-        <a href="/signup">Sign up</a>
+        <a href="/register">Sign up</a>
       </nav>
       <div className="header-input-bar">
           <input type="text" name="input-bar" required
-            maxLength="" value={input} onChange={(e) => setInput(e.target.value)}/>
+            maxLength="" 
+            value={input} 
+            onChange={(e) => setInput(e.target.value)}
+          />
           <button ref = {inputTab} onClick={handleClick}>Search</button>
       </div>
     </HeaderDiv>
